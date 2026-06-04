@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" android:requiredSplitTypes="base__abi,base__density" android:splitTypes="" package="com.moyoung.ring" platformBuildVersionCode="35" platformBuildVersionName="15">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="32" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="com.coloros.permission.READ_COLOROS_CALENDAR"/>
+    <uses-permission android:name="com.coloros.permission.WRITE_COLOROS_CALENDAR"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <queries>
+        <intent>
+            <action android:name="androidx.camera.extensions.action.VENDOR_ACTION"/>
+        </intent>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:allowNativeHeapPointerTagging="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:dataExtractionRules="@xml/data_extraction_rules" android:extractNativeLibs="true" android:fullBackupContent="@xml/backup_rules" android:icon="@mipmap/ic_launcher_adapt" android:label="@string/app_name" android:name="com.moyoung.ring.RingApplication" android:supportsRtl="true" android:theme="@style/Theme.Ringfitandroid" android:usesCleartextTraffic="false">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:authorities="com.moyoung.ring.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:exported="true" android:name="com.moyoung.ring.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.moyoung.ring.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.moyoung.ring.user.profile.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.moyoung.ring.health.BandDataStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="standard" android:name="com.moyoung.ring.health.dailytag.DailyTagDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.hrv.HrvStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.detected.activity.DetectedActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.heartrate.HeatRateStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.calendar.BaseCalendarHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.stress.StressMeasureRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.hrv.HrvMeasureRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.device.DeviceScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.device.ScanHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.othersetting.OtherSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.FirmwareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.FirmwareInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.ResetActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.FirmwareUpgradeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.wechatsport.WeChatSportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.about.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.about.WebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.goalsetting.GoalSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.WorkoutListSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.heartrate.HeartRateMeasureRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.sleep.SleepHRPatternsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.WorkOutGoalSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.bloodoxygen.BloodOxygenRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.popular.PopularWorkOutPrepareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.WorkOutCountDownActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.WorkOutRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|layoutDirection|locale" android:launchMode="singleTop" android:name="com.moyoung.ring.health.workout.popular.PopularWorkoutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.popular.PopularWorkOutDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.gps.GpsWorkOutReminderActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|layoutDirection|locale" android:launchMode="singleTop" android:name="com.moyoung.ring.health.workout.gps.GpsGoogleMapWorkoutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.gps.RequestLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.workout.gps.GpsGoogleMapWorkoutStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.device.DeviceConnectReminderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.WearReminderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.customer.CustomerWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.touch.GuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.physiologicalcycle.PhysiologicalReminderActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.physiologicalcycle.PhysiologicalCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.physiologicalcycle.PhysiologicalGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.indicatorlight.IndicatorLightActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.sos.SOSActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.meditation.activity.LocalClassPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.meditation.activity.LocalClassDoneActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.meditation.activity.OnlineClassPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.meditation.activity.OnlineClassDoneActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.meditation.activity.MeditationHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.Insights.activity.InsightDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.strava.activity.StravaMainActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.moyoung.ring.user.strava.activity.StravaOauthActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="darings_oauth" android:scheme="strava"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.moyoung.ring.user.camera.GestureCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.camera.GestureCameraDescriptionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.restore.RestoreFirmwareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.health.bloodpressure.BloodPressureRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firmware.warranty.WarrantyInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.alarm.AlarmMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.alarm.AlarmSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.findring.FindRingActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.bloodoxygen.BloodOxygenStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.stress.StressStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.firstguide.FunctionGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.display.DisplaySettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.moyoung.ring.user.display.DisplayCustomFunctionActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.skintemperature.SkinTempStatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.moyoung.ring.health.skintemperature.SkinTempMeasureRecordsActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:foregroundServiceType="connectedDevice" android:name="com.moyoung.ring.health.workout.gps.GPSTrainingService"/>
+        <service android:enabled="true" android:foregroundServiceType="connectedDevice" android:name="com.moyoung.ring.common.ble.BandConnectService"/>
+        <service android:exported="true" android:label="@string/app_name" android:name="com.moyoung.ring.user.indicatorlight.service.NotificationCollectorService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.moyoung.ring.user.indicatorlight.service.NotificationCollectorMonitorService"/>
+        <receiver android:exported="true" android:name="com.moyoung.ring.common.ble.broadcast.ScreenReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="2b27180c766c619682be0b3379c00c73"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBipup9TxWQuH5PIM0vHncYC4urvpGzs5k"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="google_analytics_automatic_screen_reporting_enabled" android:value="true"/>
+        <service android:enabled="true" android:exported="false" android:name="com.realsil.sdk.dfu.DfuService"/>
+        <provider android:authorities="com.moyoung.ring.AgentWebFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.just.agentweb.AgentWebFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/web_files_public"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="standard" android:name="com.just.agentweb.AgentActionFragment" android:theme="@style/actionActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService" android:process=":filedownloader"/>
+        <uses-library android:name="androidx.camera.extensions.impl" android:required="false"/>
+        <service android:enabled="false" android:exported="false" android:name="androidx.camera.core.impl.MetadataHolderService">
+            <meta-data android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER" android:value="androidx.camera.camera2.Camera2Config$DefaultProvider"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <meta-data android:name="com.google.gms.fitness.sdk.version" android:value="21.1.0"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.moyoung.ring.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>
