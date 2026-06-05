@@ -25,3 +25,15 @@ ring_pi_files.txt
 rssi_search.txt
 pending_intents.txt
 test_dir/
+full_decoded_base/
+decoded_config_arm64/
+decoded_config_en/
+decoded_config_xhdpi/
+RingOS.*
+*.unsigned.apk
+*.aligned.apk
+install.log
+repackage.log
+tools_check.log
+test.keystore
+decoded_config.*/
