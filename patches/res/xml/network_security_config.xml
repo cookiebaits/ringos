@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- System CAs only. User-installed CAs are NOT trusted,
+                 blocking MITM via user-installed root certs (e.g. mitmproxy). -->
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    <!-- Debug overrides intentionally omitted; release builds must never trust user CAs. -->
+</network-security-config>
